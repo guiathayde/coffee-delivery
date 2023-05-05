@@ -10,6 +10,7 @@ import {
 } from 'phosphor-react';
 
 import { useCoffee } from '../../hooks/coffee';
+import { useWindowDimensions } from '../../hooks/windowDimensions';
 
 import { Input } from '../../components/Input';
 import { Select } from '../../components/Select';
@@ -43,6 +44,7 @@ export function Checkout() {
     remove,
     setAddressAndPayment,
   } = useCoffee();
+  const { width } = useWindowDimensions();
 
   const [cep, setCep] = useState('');
   const [street, setStreet] = useState('');
@@ -158,7 +160,7 @@ export function Checkout() {
               <Input
                 placeholder="CEP"
                 required
-                containerStyle={{ width: '30%' }}
+                containerStyle={{ width: width <= 425 ? '100%' : '30%' }}
                 value={cep}
                 onChange={(e) => setCep(e.target.value)}
               />

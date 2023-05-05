@@ -50,6 +50,10 @@ export const CoffeeCardContainer = styled.div`
 
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 425px) {
+    width: 80%;
+  }
 `;
 
 export const BuyContainer = styled.div`

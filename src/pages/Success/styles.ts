@@ -17,6 +17,10 @@ export const SuccessContent = styled.div`
   flex-direction: row;
   align-items: flex-end;
   gap: 2rem;
+
+  @media (max-width: 425px) {
+    width: 90%;
+  }
 `;
 
 export const OrderContainer = styled.div`

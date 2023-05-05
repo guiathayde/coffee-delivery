@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCoffee } from '../../../../hooks/coffee';
+import { useWindowDimensions } from '../../../../hooks/windowDimensions';
 
 import { Tag } from '../../../../components/Tag';
 import { CoffeeCard } from '../../../../components/CoffeeCard';
@@ -18,6 +19,7 @@ type Filter = 'Tradicional' | 'Especial' | 'Com leite' | 'Alcoólico' | 'Gelado'
 export function CoffeeList() {
   const { coffees, increment, decrement } = useCoffee();
   const navigate = useNavigate();
+  const { width } = useWindowDimensions();
 
   const [filtersSelected, setFiltersSelected] = useState<Filter[]>([
     'Tradicional',
@@ -99,6 +101,9 @@ export function CoffeeList() {
               onIncrement={increment}
               onDecrement={decrement}
               onShoppingCartClick={() => navigate('checkout')}
+              containerStyle={{
+                margin: width <= 425 ? '0 auto' : '0',
+              }}
             />
           );
         })}

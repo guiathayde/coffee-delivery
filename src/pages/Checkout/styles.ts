@@ -9,11 +9,21 @@ export const CheckoutContainer = styled.main`
 
   padding: 3rem 0;
   margin: 0 auto;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const CheckoutContent = styled.div`
   min-width: 28rem;
   max-width: 640px;
+
+  @media (max-width: 425px) {
+    min-width: 90%;
+    max-width: 90%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -77,7 +87,6 @@ export const ContentContainer = styled.div`
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.3;
-        text-align: center;
         color: ${({ theme }) => theme.text};
       }
     }
@@ -87,6 +96,15 @@ export const ContentContainer = styled.div`
     display: flex;
     flex-direction: row;
     gap: 0.75rem;
+  }
+
+  @media (max-width: 425px) {
+    .select-container {
+      flex-direction: column;
+      align-items: center;
+
+      width: 100%;
+    }
   }
 `;
 
@@ -113,6 +131,20 @@ export const FormContainer = styled.form`
     grid-gap: 0.75rem;
 
     width: 100%;
+  }
+
+  @media (max-width: 425px) {
+    .number-complement-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .neighborhood-city-state-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 `;
 

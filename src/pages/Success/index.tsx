@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { useTheme } from 'styled-components';
 import { MapPin, Timer, CurrencyDollar } from 'phosphor-react';
 
 import { useCoffee } from '../../hooks/coffee';
+import { useWindowDimensions } from '../../hooks/windowDimensions';
 
 import {
   SuccessContainer,
@@ -16,11 +18,11 @@ import {
 } from './styles';
 
 import illustration from '../../assets/success-illustration.png';
-import { useEffect } from 'react';
 
 export function Success() {
   const theme = useTheme();
   const { clear, addressAndPayment } = useCoffee();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     clear();
@@ -77,7 +79,7 @@ export function Success() {
             </OrderInfo>
           </OrderInfoContainer>
         </OrderContainer>
-        <Illustration src={illustration} alt="Sucesso" />
+        {width > 425 && <Illustration src={illustration} alt="Sucesso" />}
       </SuccessContent>
     </SuccessContainer>
   );

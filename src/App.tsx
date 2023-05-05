@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/global';
 import { defaultTheme } from './styles/themes/default';
 
-import { CoffeesContextProvider } from './hooks/coffee';
+import { AppProvider } from './hooks';
 
 import { Router } from './Router';
 
@@ -14,9 +14,9 @@ export function App() {
       <GlobalStyle />
 
       <BrowserRouter>
-        <CoffeesContextProvider>
+        <AppProvider>
           <Router />
-        </CoffeesContextProvider>
+        </AppProvider>
       </BrowserRouter>
     </ThemeProvider>
   );

@@ -1,5 +1,7 @@
 import { ShoppingCart, Timer, Package, Coffee } from 'phosphor-react';
 
+import { useWindowDimensions } from '../../../../hooks/windowDimensions';
+
 import {
   IntroContainer,
   IntroDetails,
@@ -13,6 +15,8 @@ import {
 import illustration from '../../../../assets/intro-illustration.png';
 
 export function Intro() {
+  const { width } = useWindowDimensions();
+
   return (
     <IntroContainer>
       <IntroDetails>
@@ -50,7 +54,7 @@ export function Intro() {
           </Item>
         </Items>
       </IntroDetails>
-      <IllustrationImg src={illustration} alt="Café" />
+      {width > 425 && <IllustrationImg src={illustration} alt="Café" />}
     </IntroContainer>
   );
 }

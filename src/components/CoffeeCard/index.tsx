@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { ShoppingCart } from 'phosphor-react';
 
 import { Tag } from '../Tag';
@@ -8,6 +9,7 @@ import { Coffee } from '../../reducers/coffees/reducer';
 import { CoffeeCardContainer, BuyContainer, IconButton } from './styles';
 
 interface CoffeeCardProps {
+  containerStyle?: CSSProperties;
   coffee: Coffee;
   onIncrement: (coffeeId: number) => void;
   onDecrement: (coffeeId: number) => void;
@@ -15,13 +17,14 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({
+  containerStyle,
   coffee,
   onIncrement,
   onDecrement,
   onShoppingCartClick,
 }: CoffeeCardProps) {
   return (
-    <CoffeeCardContainer>
+    <CoffeeCardContainer style={containerStyle}>
       <img src={coffee.image} alt={coffee.name} />
       <div className="tags">
         {coffee.tags.map((tag) => (

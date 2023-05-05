@@ -23,6 +23,14 @@ export const Header = styled.header`
     line-height: 1.3;
     color: ${({ theme }) => theme.subtitle};
   }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    width: 90%;
+  }
 `;
 
 export const FilterContainer = styled.div`
@@ -39,4 +47,8 @@ export const ListContainer = styled.div`
   grid-column-gap: 2.5rem;
 
   padding: 1rem 0 6rem;
+
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
 `;
